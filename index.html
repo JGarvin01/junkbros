@@ -5,120 +5,140 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Junk Bros</title>
 
+  <!-- Modern typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --bg: #eaf5e4;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #4ade80;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      color: #2a2a2a;
-      background: #e1f1d9;
-    }
-
-    /* NAVBAR */
-    header {
-      background: #ffffffcc;
-      backdrop-filter: blur(8px);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      border-bottom: 1px solid #ddd;
-      z-index: 1000;
-    }
-
-    .nav-container {
-      max-width: 1000px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 20px;
-    }
-
-    .logo {
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #2a2a2a;
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      color: #4a7c59;
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      text-align: center;
     }
 
     /* HERO */
     .hero {
-      margin-top: 70px;
-      padding: 80px 20px;
-      text-align: center;
-      background: linear-gradient(180deg, #b0f889 0%, #e1f1d9 70%);
+      padding: 110px 20px 90px;
+      background: linear-gradient(180deg, #b0f889 0%, var(--bg) 70%);
     }
 
     .hero h1 {
-      font-size: 48px;
+      font-size: 56px;
       margin: 0;
+      font-weight: 700;
+      letter-spacing: -1.5px;
     }
 
     .hero p {
-      font-size: 22px;
-      margin-top: 10px;
+      font-size: 20px;
+      margin-top: 12px;
+      color: var(--text);
+      font-weight: 500;
     }
 
-    /* SECTIONS */
+    .subtitle {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    /* SECTION LAYOUT */
     section {
       max-width: 900px;
       margin: auto;
-      padding: 50px 20px;
+      padding: 60px 20px;
     }
 
     h2 {
-      margin-bottom: 20px;
+      font-size: 32px;
+      margin-bottom: 30px;
+      letter-spacing: -0.5px;
     }
 
-    /* CONTACT */
-    .contact-box {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
+    /* CONTACT CARDS */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
     }
 
-    .contact-box div {
-      flex: 1;
-      min-width: 250px;
+    .card {
+      background: var(--card);
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      transition: transform 0.2s ease;
     }
 
-    a {
-      color: #2a2a2a;
+    .card:hover {
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .card a {
+      color: var(--text);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
     }
 
     /* TESTIMONIALS */
     .testimonial {
-      background: #f5f5f5;
-      padding: 20px;
-      margin-bottom: 15px;
-      border-radius: 10px;
+      background: var(--card);
+      padding: 22px;
+      margin: 15px auto;
+      border-radius: 14px;
+      max-width: 650px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      font-style: italic;
+      color: var(--text);
+    }
+
+    .testimonial span {
+      display: block;
+      margin-top: 10px;
+      font-style: normal;
+      font-weight: 600;
+      color: var(--muted);
+      font-size: 14px;
     }
 
     /* FOOTER */
     footer {
-      text-align: center;
-      padding: 30px;
+      padding: 40px 20px;
       font-size: 14px;
-      color: #666;
+      color: var(--muted);
     }
 
     /* MOBILE */
     @media (max-width: 600px) {
       .hero h1 {
-        font-size: 36px;
+        font-size: 40px;
       }
 
-      nav {
-        display: none;
+      h2 {
+        font-size: 26px;
       }
     }
   </style>
@@ -126,46 +146,48 @@
 
 <body>
 
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Junk Bros</h1>
+    <p>A reliable junk removal service you can count on</p>
+    <div class="subtitle">Fast • Affordable • Professional</div>
+  </div>
 
-<!-- HERO -->
-<div class="hero" id="home">
-  <h1>Junk Bros</h1>
-  <p>A Great Company to Work With!</p>
-</div>
+  <!-- CONTACT -->
+  <section>
+    <h2>Get in Touch</h2>
 
-<!-- CONTACT -->
-<section id="contact">
-  <h2>Get in Touch With Us</h2>
+    <div class="contact-grid">
+      <div class="card">
+        <h3>Email</h3>
+        <a href="mailto:schedule@junkbros.store">schedule@junkbros.store</a>
+      </div>
 
-  <div class="contact-box">
-    <div>
-      <h3>Email</h3>
-      <p><a href="mailto:schedule@junkbros.store">schedule@junkbros.store</a></p>
+      <div class="card">
+        <h3>Phone</h3>
+        <a href="tel:3127723035">312.772.3035</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section>
+    <h2>What Customers Say</h2>
+
+    <div class="testimonial">
+      “Great pricing and amazing work!”
+      <span>- Customer Review</span>
     </div>
 
-    <div>
-      <h3>Phone</h3>
-      <p><a href="tel:3127723035">312.772.3035</a></p>
+    <div class="testimonial">
+      “Got the job done quick and it came out great.”
+      <span>- Customer Review</span>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <h2>Testimonials</h2>
-
-  <div class="testimonial">
-    Great pricing and amazing work!
-  </div>
-
-  <div class="testimonial">
-    Got the job done quick and it came out great.
-  </div>
-</section>
-
-<footer>
-  © 2026 Junk Bros. All rights reserved.
-</footer>
+  <footer>
+    © 2026 Junk Bros. All rights reserved.
+  </footer>
 
 </body>
 </html>
